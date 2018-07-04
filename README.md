@@ -1,7 +1,7 @@
 # PreferencesManagerSwift
 
 [![Swift version](https://img.shields.io/badge/Swift-4-orange.svg)](https://kotlinlang.org/)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/illescasDaniel/PreferencesManagerKT/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/illescasDaniel/PreferencesManagerSwift/blob/master/LICENSE)
 
 A simple way to manage local values in your iOS apps.
 
