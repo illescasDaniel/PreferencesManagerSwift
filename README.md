@@ -24,28 +24,28 @@ Usage
 ### Get saved values:
 
 ```swift
-let savedUsername = PreferencesManager.shared[.username, default: ""]
+let savedUsername = PreferencesManager.standard[.username, default: "none"]
 // or
-let savedUsername = PreferencesManager.shared[.username] ?? ""
+let savedUsername = PreferencesManager.standard[.username] ?? ""
 ```
 
 In Swift 4.2 or above you can also use it like this:
 
 ```swift
-if PreferencesManager.shared.username == "Daniel" { }
-print(PreferencesManager.shared.password ?? "")
+if PreferencesManager.standard.username == "Daniel" { }
+print(PreferencesManager.standard.password ?? "")
 ```
 
 ### **Set** values:
 
 ```swift
 // When is only one
-PreferencesManager.shared[.username] = "daniel"
+PreferencesManager.standard[.username] = "daniel"
 // Optional for Swift 4.2 or above
-PreferencesManager.shared.username = "daniel"
+PreferencesManager.standard.username = "daniel"
 
 // Easier method when modifying multiple properties
-PreferencesManager.shared.set ([
+PreferencesManager.standard.set ([
     .username: "daniel",
     .password: "1234"
 ])
