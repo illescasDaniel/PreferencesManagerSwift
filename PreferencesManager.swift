@@ -29,12 +29,21 @@ import Foundation
 #endif
 class PreferencesManager {
     
+    // Complete with you own properties
     enum Properties: String {
+        
         case username
         case password
         // ...
+        
+        var defaultvalue: Any {
+            switch self {
+            case .username: return "" as String
+            case .password: return "" as String
+            }
+        }
     }
-    
+
     static let standard = PreferencesManager()
     private let userDefaults: UserDefaults
     
@@ -51,6 +60,11 @@ class PreferencesManager {
     
     subscript<T>(property: Properties, default defaultvalue: T) -> T {
         return self[property] ?? defaultvalue
+    }
+    
+    /// Will only work if the `defaultvalue` property is well defined...
+    func valueOrDefault<T>(for property: Properties) -> T! {
+        return self[property] ?? (property.defaultvalue as! T)
     }
     
     #if swift(>=4.2)
@@ -70,7 +84,7 @@ class PreferencesManager {
     }
     #endif
     
-    func set(_ values: [Properties: Any]) {
+    func setMultiple(_ values: [Properties: Any]) {
         values.forEach { self[$0.key] = $0.value }
     }
     

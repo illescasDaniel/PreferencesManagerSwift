@@ -10,12 +10,20 @@ Android version [here](https://github.com/illescasDaniel/PreferencesManagerKT).
 Setup
 -----
 
-Add your properties inside the `PreferencesManager` class:
+Add your properties and default values inside the `PreferencesManager` class:
 ```swift
 enum Properties {
+
     case username
     case password
-    // ...
+
+    // It is highly recommended to add the default values too    
+    var defaultvalue: Any {
+        switch self {
+        case .username: return "" as String
+        case .password: return "" as String
+        }
+    }
 }
 ```
 Usage
@@ -27,13 +35,18 @@ Usage
 let savedUsername = PreferencesManager.standard[.username, default: "none"]
 // or
 let savedUsername = PreferencesManager.standard[.username] ?? ""
+// or
+let savedUsername: String = PreferencesManager.standard.valueOrDefault(for: .username)
 ```
 
 In Swift 4.2 or above you can also use it like this:
 
 ```swift
-if PreferencesManager.standard.username == "Daniel" { }
-print(PreferencesManager.standard.password ?? "")
+let preferences = PreferencesManager.standard
+
+if preferences.username == "Daniel" {
+    print(preferences.password ?? "")
+}
 ```
 
 ### **Set** values:
