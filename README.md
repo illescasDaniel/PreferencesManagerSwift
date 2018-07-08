@@ -58,7 +58,7 @@ PreferencesManager.standard[.username] = "daniel"
 PreferencesManager.standard.username = "daniel"
 
 // Easier method when modifying multiple properties
-PreferencesManager.standard.set ([
+PreferencesManager.standard.setMultiple ([
     .username: "daniel",
     .password: "1234"
 ])
