@@ -24,6 +24,11 @@ enum Properties {
         case .password: return "" as String
         }
     }
+    
+    /// For custom classes (they also must conform to `Codable` protocol)
+    enum Custom: String {
+        case user
+    }
 }
 ```
 Usage
@@ -63,3 +68,4 @@ PreferencesManager.standard.setMultiple ([
     .password: "1234"
 ])
 ```
+**Note:** it is possible to save values of custom classes, just don't forget the last part of the Setup section: for custom classes make them conform to `Codable` and add its corresponding name to the `Custom` enum.
