@@ -59,6 +59,8 @@ if preferences.username == "Daniel" {
 ```swift
 // When is only one
 PreferencesManager.standard[.username] = "daniel"
+PreferencesManager.standard[.user] = User(name: "daniel", age: 21)
+
 // Optional for Swift 4.2 or above
 PreferencesManager.standard.username = "daniel"
 
